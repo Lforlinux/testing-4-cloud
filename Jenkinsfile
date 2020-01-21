@@ -6,22 +6,22 @@ pipeline {
         string(name:'AWS_SECRET_ACCESS_KEY', defaultValue: '', description: 'AWS_SECRET_ACCESS_KEY')
     }
     stages {
-        stage('Terraform Install'){
+        stage('Terraform Destroy'){
             steps{
                   sh(
                       '''
-                      sh 'scripts/terraform-install.sh'
+                      sh 'scripts/terraform-destroy.sh'
         
                       '''  
                   )
             }
 
         }
-        stage('Terraform init'){
+        stage('Terraform plan'){
             steps{
                   sh(
                       '''
-                      sh 'scripts/terraform-init.sh'
+                      sh 'scripts/terraform-plan.sh'
                       '''  
                   )
             }
@@ -36,11 +36,11 @@ pipeline {
                   )
             }
         }
-        stage('Terraform apply'){
+        stage('Terraform plan'){
             steps{
                   sh(
                       '''
-                      sh 'scripts/terraform-apply.sh'
+                      sh 'scripts/terraform-plan.sh'
                       '''  
                   )
             }
