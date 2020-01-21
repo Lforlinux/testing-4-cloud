@@ -40,7 +40,7 @@ pipeline {
             steps{
                   sh(
                       '''
-                      sh 'scripts/terraform-apply.sh'
+                      sh 'scripts/terraform-plan.sh'
                       '''  
                   )
             }
